@@ -38,8 +38,12 @@ def predict():
     int_features = [x for x in request.form.values()]
    
     prediction = DT_model.predict(int_features)
+    if prediction = 1.0:
+        x='Real News'
+    else:
+        x='Fake news'
     #prediction = logistic_model.predict([[242.0,23.2,25.4,30.0,11.5200,4.0200]])
-    return render_template('Project.html', prediction_text = 'THE Given News is   {}'.format(float(prediction)))
+    return render_template('Project.html', prediction_text = 'The given News is   {}'.format(x))
 
 if __name__=='__main__':
     app.run()
