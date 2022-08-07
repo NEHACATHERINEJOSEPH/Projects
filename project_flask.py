@@ -38,7 +38,7 @@ def predict():
     int_features = [x for x in request.form.values()]
    
     prediction = DT_model.predict(int_features)
-    if prediction = 1.0:
+    if prediction == 1.0:
         x='Real News'
     else:
         x='Fake news'
