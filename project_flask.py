@@ -23,7 +23,7 @@ from flask import Flask, request, jsonify, render_template
 
 app=Flask(__name__)
 pickle_in = open("projects.pkl","rb")
-logistic_model = pickle.load(pickle_in)
+DT_model = pickle.load(pickle_in)
 
 @app.route('/')
 def home():
@@ -36,8 +36,8 @@ def predict():
     For rendering results on HTML GUI
     """
     int_features = [x for x in request.form.values()]
-    final_features = [np.array(int_features)]
-    prediction = logistic_model.predict(final_features)
+   
+    prediction = DT_model.predict(int_features)
     #prediction = logistic_model.predict([[242.0,23.2,25.4,30.0,11.5200,4.0200]])
     return render_template('Project_Flask.html', prediction_text = 'THE Given News is   {}'.format(float(prediction)))
 
