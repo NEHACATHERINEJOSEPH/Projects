@@ -27,7 +27,7 @@ logistic_model = pickle.load(pickle_in)
 
 @app.route('/')
 def home():
-    return render_template('Project_Flask.html')
+    return render_template('Project.html')
 
 
 @app.route('/predict',methods=["POST"])
