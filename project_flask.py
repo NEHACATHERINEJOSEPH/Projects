@@ -35,11 +35,11 @@ def predict():
     """
     For rendering results on HTML GUI
     """
-    int_features = [float(x) for x in request.form.values()]
+    int_features = [x for x in request.form.values()]
     final_features = [np.array(int_features)]
     prediction = logistic_model.predict(final_features)
     #prediction = logistic_model.predict([[242.0,23.2,25.4,30.0,11.5200,4.0200]])
-    return render_template('Project_Flask.html', prediction_text = 'THE Given News is   {}'.format(str(prediction)))
+    return render_template('Project_Flask.html', prediction_text = 'THE Given News is   {}'.format(float(prediction)))
 
 if __name__=='__main__':
     app.run()
